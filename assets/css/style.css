@@ -1,0 +1,21 @@
+/* RESET STYLING */
+*,
+::before,
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Rubik';
+}
+@font-face {
+	font-family: 'Rubik';
+	src: url(/assets/fonts/Rubik-VariableFont_wght.ttf);
+}
+@font-face {
+	font-family: 'Rubik Italic';
+	src: url(/assets/fonts/Rubik-Italic-VariableFont_wght.ttf);
+}
+
+body {
+    background: url(/assets/images/pattern-background-mobile-light.svg);
+}
