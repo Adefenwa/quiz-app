@@ -29,7 +29,13 @@
 }
 
 body {
-    background: url(/assets/images/pattern-background-mobile-light.svg);
+    background: var(--Light-Grey, #F4F6FA);
+	background-image: url(/assets/images/ellipse-8.png);
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
 }
 
 /* NAVIGATION/DARK AND LIGHT MODE STYLING */
@@ -57,4 +63,55 @@ nav {
 	position: absolute;
 	top: 4px;
 	left: 5px;
+}
+
+/* HERO STYLING */
+.hero {
+	padding: 2em 0;
+}
+.hero__light {
+	font-weight: 300;
+	font-size: 40px;
+	color: var(--Dark-Navy, #313E51);
+}
+.hero__bold {
+	font-weight: 500;
+}
+.body__text {
+	color: var(--Grey-Navy, #626C7F);
+	font-weight: 400;
+	font-style: italic;
+	margin-top: 1em;
+
+}
+
+/* SUBJECT LIST STYLING */
+.subject__list {
+
+}
+.subject {
+	margin-bottom: 1em;
+	background-color: var(--white);
+	border-radius: 10px;
+	padding: 1em;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+.icon {
+	border-radius: 5px;
+	display: flex;
+	padding: 5px;
+}
+.html .icon {
+	background-color: rgba(238, 84, 84, 0.1);
+}
+.css .icon {
+	background-color: rgba(38, 215, 130, 0.1);
+}
+.javascript .icon {
+	background-color: #EBF0FF;
+}
+.accessibility .icon {
+	background-color: #F6E7FF;
 }
