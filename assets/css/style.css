@@ -37,11 +37,35 @@ body {
 	width: 90%;
 	margin: 0 auto;
 }
+.hidden {
+	display: none;
+}
 
 /* NAVIGATION/DARK AND LIGHT MODE STYLING */
 nav {
 	display: flex;
 	gap: .5em;
+	justify-content: space-between;
+	padding: .5em;
+	align-items: center;
+	width: 95%;
+	margin: 10px auto;
+}
+.question__tag {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+nav .icon {
+	background-color: #F6E7FF;
+}
+.question__tag--title {
+	font-weight: 500;
+	color: var(--Dark-Navy, #313E51);
+}
+.mode {
+	display: flex;
+	gap: 0.5em;
 	justify-content: flex-end;
 	padding: .5em;
 	align-items: center;
@@ -86,9 +110,6 @@ nav {
 }
 
 /* SUBJECT LIST STYLING */
-.subject__list {
-
-}
 .subject {
 	margin-bottom: 1em;
 	background-color: var(--white);
@@ -114,4 +135,83 @@ nav {
 }
 .accessibility .icon {
 	background-color: #F6E7FF;
+}
+
+/* SUBJECT QUESTION STYLING */
+.subject__question {
+	margin-top: 3em;
+}
+.subject__question-number {
+	color: var(--Grey-Navy, #626C7F);
+	font-size: 14px;
+	font-style: italic;
+	font-weight: 400;
+	padding: 1em 0;
+}
+.question {
+	color: var(--Dark-Navy, #313E51);
+	font-size: 20px;
+	font-weight: 500;
+}
+
+input[type='range'] {
+	width: 100%;
+	-webkit-appearance: none;
+	appearance: none;
+	background: var(--white);
+	border-radius: 20px;
+	outline: none;
+	height: 10px;
+	margin: 1.5em 0;
+}
+/* For Webkit Browsers */
+input[type='range']::-webkit-slider-runnable-track {
+	background: linear-gradient(to right, #a44cf8, #a44cf8) no-repeat;
+    background-size: 50% 100%; /* Adjust the size to control the fill */
+    height: 6px;
+    border-radius: 20px;
+	overflow: hidden;
+	
+}
+input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 0;
+	height: 0;
+}
+button {
+	outline: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+}
+.option {
+	margin-bottom: 0.5em;
+	background-color: var(--white);
+	padding: 12px;
+	border-radius: 10px;
+	display: flex;
+	gap: 1em;
+	font-size: 18px;
+	align-items: center;
+}
+.option__letter {
+	background-color: var(--light-grey);
+	padding: 0.5em .7em;
+	border-radius: 5px;
+	font-weight: 500;
+	color: var(--Grey-Navy, #626C7F);
+}
+.option__title {
+	color: var(--Dark-Navy, #313E51);
+	font-weight: 600;
+}
+.btn--submit {
+	background-color: var(--purple);
+	padding: 14px;
+	border-radius: 12px;
+	color: var(--Pure-White, #FFF);
+	font-weight: 500;
+	font-size: 14px;
 }
