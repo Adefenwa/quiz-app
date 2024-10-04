@@ -41,7 +41,7 @@ img {
 	margin: 0 auto;
 }
 .hidden {
-	display: none;
+	display: none !important;
 }
 #wrapper {
 	max-width: 768px; /* TABLET MODE */
@@ -341,5 +341,24 @@ button {
 	}
 	.subject__list {
 		width: 50%;
+	}
+
+	/* SUBJECT QUESTION STYLING */
+	.subject__question {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+	}
+	.row__one {
+		width: 40%;
+	}
+	.subject__question-number {
+		padding: 0 0 1em 0;
+	}
+	.row__two {
+		width: 50%;
+	}
+	input[type='range'] {
+		margin-top: 9em;
 	}
 }
