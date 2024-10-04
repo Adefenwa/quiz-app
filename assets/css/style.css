@@ -254,6 +254,19 @@ button {
 .picked__incorrectly {
 	border: 3px solid var(--Red, #EE5454);
 }
+.error {
+	display: none; /* display: flex */
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+	margin: 1em 0;
+}
+.error__message {
+	color: #EE5454;
+	font-size: 18px;
+	font-weight: 400;
+	
+}
 
 /* QUIZ COMPLETED STYLING */
 .score--board {
