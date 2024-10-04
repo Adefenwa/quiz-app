@@ -348,6 +348,7 @@ button {
 		display: flex;
 		justify-content: space-between;
 		gap: 1em;
+		margin-top: 2em;
 	}
 	.row__one {
 		width: 40%;
@@ -361,4 +362,16 @@ button {
 	input[type='range'] {
 		margin-top: 9em;
 	}
+
+	/* QUIZ COMPLETED STYLING */
+	.quiz__completed {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+		margin-top: 2em;
+	}
+	.score--board {
+		margin: 0;
+	}
+	
 }
