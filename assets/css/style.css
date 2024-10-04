@@ -42,7 +42,10 @@ img {
 .hidden {
 	display: none;
 }
-
+#wrapper {
+	max-width: 768px;
+	margin: 0 auto;
+}
 /* NAVIGATION/DARK AND LIGHT MODE STYLING */
 nav {
 	display: flex;
