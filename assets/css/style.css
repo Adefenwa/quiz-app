@@ -91,7 +91,7 @@ nav .icon {
 	left: 5px;
 }
 
-/* HERO STYLING */
+/* QUIZ MENU STYLING */
 .hero {
 	padding: 2em 0;
 }
@@ -102,6 +102,9 @@ nav .icon {
 }
 .hero__bold {
 	font-weight: 500;
+	font-size: 40px;
+	color: var(--Dark-Navy, #313E51);
+	
 }
 .body__text {
 	color: var(--Grey-Navy, #626C7F);
@@ -232,8 +235,8 @@ button {
 	border: none;
 	color: var(--Pure-White, #FFF);
 	
-} 
-.btn--submit {
+}
+.btn {
 	background-color: var(--purple);
 	padding: 14px;
 	border-radius: 12px;
@@ -242,7 +245,7 @@ button {
 	font-size: 14px;
 	transition: opacity 0.6s
 }
-.btn--submit:hover {
+.btn:hover {
 	opacity: 0.3;
 }
 .picked__correctly {
@@ -250,4 +253,44 @@ button {
 }
 .picked__incorrectly {
 	border: 3px solid var(--Red, #EE5454);
+}
+
+/* QUIZ COMPLETED STYLING */
+.score--board {
+	margin-top: 2em;
+	background: var(--Pure-White, #FFF);
+	padding: 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;	
+}
+.title {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+.icon--title {
+	background-color: #F6E7FF;
+	padding: 5px;
+	border-radius: 5px;
+}
+.title--text {
+	font-size: 18px;
+	color: var(--Dark-Navy, #313E51);
+	font-weight: 500;
+}
+.score {
+	font-size: 88px;
+	font-weight: 500;
+	color: var(--Dark-Navy, #313E51);
+}
+.total__score {
+	font-size: 18px;
+	font-weight: 400;
+	color: var(--Grey-Navy, #626C7F);
+}
+.btn--play {
+	margin: 1em 0;
 }
