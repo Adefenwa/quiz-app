@@ -31,6 +31,7 @@
 body {
     background: var(--Light-Grey, #F4F6FA);
 	background-image: url(/assets/images/ellipse-8.png);
+	background-repeat: no-repeat;
 }
 img {
 	max-width: 100%;
@@ -43,7 +44,7 @@ img {
 	display: none;
 }
 #wrapper {
-	max-width: 768px;
+	max-width: 768px; /* TABLET MODE */
 	margin: 0 auto;
 }
 /* NAVIGATION/DARK AND LIGHT MODE STYLING */
@@ -126,6 +127,7 @@ nav .icon {
 	display: flex;
 	align-items: center;
 	gap: 16px;
+	box-shadow: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
 }
 .icon {
 	border-radius: 5px;
@@ -309,4 +311,35 @@ button {
 }
 .btn--play {
 	margin: 1em 0;
+}
+
+/* SCREEN BIGGER THAN 768PX / DESKTOP MODE */
+@media (min-width: 768px) {
+	body {
+		background: var(--Light-Grey, #F4F6FA);
+		background-image: url(/assets/images/ellipse-8.png), url(/assets/images/ellipse-9.png);
+		background-position: top left, bottom right;
+		background-repeat: no-repeat, no-repeat;
+		background-size: 200px, 250px;
+	}
+	#wrapper {
+		max-width: 900px;
+	}
+	nav {
+		margin-top: 2em;
+	}
+	/* QUIZ MENU STYLING */
+	.quiz__menu {
+		display: flex;
+		justify-content: space-between;
+		gap: 2em;
+		margin: 2em 0;
+	}
+	.hero {
+		padding: 0;
+
+	}
+	.subject__list {
+		width: 50%;
+	}
 }
