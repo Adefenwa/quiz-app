@@ -32,7 +32,9 @@ body {
     background: var(--Light-Grey, #F4F6FA);
 	background-image: url(/assets/images/ellipse-8.png);
 }
-
+img {
+	max-width: 100%;
+}
 .container {
 	width: 90%;
 	margin: 0 auto;
@@ -192,8 +194,18 @@ button {
 	padding: 12px;
 	border-radius: 10px;
 	display: flex;
-	gap: 1em;
 	font-size: 18px;
+	align-items: center;
+	justify-content: space-between;
+	transition: all 0.2s;
+}
+.row--one {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+.row--two {
+	display: none; /* default, display: flex */
 	align-items: center;
 }
 .option__letter {
@@ -202,11 +214,25 @@ button {
 	border-radius: 5px;
 	font-weight: 500;
 	color: var(--Grey-Navy, #626C7F);
+	transition: all 0.6s;
 }
 .option__title {
 	color: var(--Dark-Navy, #313E51);
 	font-weight: 600;
 }
+.option:hover .option__letter  {
+	background-color: #F6E7FF;
+	color: var(--Purple, #A729F5);
+}
+.option:active, .option:focus {
+	border: 3px solid var(--Purple, #A729F5);
+}
+.option:active, .option:focus .option__letter {
+	background-color: var(--purple);
+	border: none;
+	color: var(--Pure-White, #FFF);
+	
+} 
 .btn--submit {
 	background-color: var(--purple);
 	padding: 14px;
@@ -214,4 +240,14 @@ button {
 	color: var(--Pure-White, #FFF);
 	font-weight: 500;
 	font-size: 14px;
+	transition: opacity 0.6s
+}
+.btn--submit:hover {
+	opacity: 0.3;
+}
+.picked__correctly {
+	border: 3px solid var(--green);
+}
+.picked__incorrectly {
+	border: 3px solid var(--Red, #EE5454);
 }
