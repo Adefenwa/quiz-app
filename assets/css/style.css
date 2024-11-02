@@ -33,6 +33,7 @@ body {
 	background-image: url(/assets/images/ellipse-8.png);
 	background-repeat: no-repeat;
 }
+
 img {
 	max-width: 100%;
 }
@@ -78,6 +79,7 @@ nav .icon {
 }
 .switch__mode {
 	position: relative;
+	cursor: pointer;
 }
 .bg-mode {
 	width: 2.2em;
@@ -311,6 +313,41 @@ button {
 }
 .btn--play {
 	margin: 1em 0;
+}
+
+/* DARK MODE STYLING */
+.dark__mode {
+	background: var(--Dark-Navy, #313E51);
+	background-image: url(/assets/images/ellipse-11.png);
+	background-repeat: no-repeat;
+}
+.icon__dark-mode {
+	stroke: #fff;
+}
+.icon__dm {
+	fill: #fff;
+}
+.icon__light-mode {
+	stroke: #fff;
+}
+.icon__lm {
+	fill: #fff;
+}
+
+.switch__two {
+	width: 12px;
+	height: 12px;
+	background: var(--white);
+	border-radius: 50%;
+	position: absolute;
+	top: 4px;
+	left: 18px;
+}
+.white__color {
+	color: var(--Pure-White, #FFF);
+}
+.light__blue {
+	color: var(--light-bluish);
 }
 
 /* SCREEN BIGGER THAN 768PX / DESKTOP MODE */
