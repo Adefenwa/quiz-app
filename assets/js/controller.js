@@ -1,19 +1,22 @@
 "use strict;";
 import * as model from "./model.js";
 import toggleSwitch from "./toggleView.js";
-import subjectQuiz from "./subjectView.js"
+import subjectQuiz from "./subjectView.js";
 
 // CONTROL QUIZ
 const controlQuiz = async function (subject) {
   try {
     const quiz = await model.loadQuiz(subject);
-    return quiz;
+    // return quiz;
+    subjectQuiz.showQuestionPage();
+    // console.log(quiz);
   } catch (error) {
     console.error(error);
   }
 };
 
-controlQuiz("accessibility");
+// controlQuiz("html");
+subjectQuiz.addHandlerSubject(controlQuiz);
 
 // CONTROL TOGGLE SWITCH
 toggleSwitch.addHandlerToggle(() => {
@@ -21,7 +24,7 @@ toggleSwitch.addHandlerToggle(() => {
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 });
 
-subjectQuiz.addHandlerSubject(controlQuiz)
+// APPLY SAVED THEME
 const applySavedTheme = () => {
   const savedTheme = localStorage.getItem("theme");
 
