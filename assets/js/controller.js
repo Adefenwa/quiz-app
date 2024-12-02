@@ -1,16 +1,19 @@
 "use strict;";
 import * as model from "./model.js";
 import toggleSwitch from "./toggleView.js";
+import subjectQuiz from "./subjectView.js"
 
 // CONTROL QUIZ
-const controlQuiz = async function () {
+const controlQuiz = async function (subject) {
   try {
-    const qu = await model.loadQuiz();
-    console.log(qu);
-  } catch (error) {}
+    const quiz = await model.loadQuiz(subject);
+    return quiz;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
-controlQuiz();
+controlQuiz("accessibility");
 
 // CONTROL TOGGLE SWITCH
 toggleSwitch.addHandlerToggle(() => {
@@ -18,6 +21,7 @@ toggleSwitch.addHandlerToggle(() => {
   localStorage.setItem("theme", isDarkMode ? "dark" : "light");
 });
 
+subjectQuiz.addHandlerSubject(controlQuiz)
 const applySavedTheme = () => {
   const savedTheme = localStorage.getItem("theme");
 
@@ -27,19 +31,9 @@ const applySavedTheme = () => {
 };
 
 applySavedTheme();
+
+// Question Tag Removed
 const questionTagEL = document.querySelector(".question__tag");
-const quizMenuEL = document.querySelector(".quiz__menu");
-
-!quizMenuEL.classList.contains("hidden")
-  ? questionTagEL.classList.add("visibility-hidden")
-  : questionTagEL.classList.remove("visibility-hidden");
-
-// For the quiz, the things I need are
-// 1. Questions
-// 2. Options A, B, C, and D
-// 3. Correct answer
-// 4. Quiz Title
-// 5. Icon
-class Quiz {
-  _data;
-}
+const btnHTML = document.querySelector(".html");
+const quizMenuContainer = document.querySelector(".quiz__menu");
+const subjectQuestionsContainer = document.querySelector(".subject__question");
