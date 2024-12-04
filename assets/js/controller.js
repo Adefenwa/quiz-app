@@ -7,8 +7,12 @@ import subjectQuiz from "./subjectView.js";
 const controlQuiz = async function (subject) {
   try {
     const quiz = await model.loadQuiz(subject);
-    // return quiz;
     subjectQuiz.showQuestionPage();
+    subjectQuiz.showSubjectTag(quiz.title);
+    subjectQuiz.showSubjectTagIcon(quiz.icon);
+    // return quiz;
+    console.log(quiz);
+
     // console.log(quiz);
   } catch (error) {
     console.error(error);

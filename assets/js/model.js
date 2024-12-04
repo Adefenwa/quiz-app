@@ -12,7 +12,7 @@ export const loadQuiz = async function (subject) {
     );
     if (!quiz) throw new Error("Subject not found!");
     return quiz;
-    // console.log(quiz.questions);
+    // console.log(quiz);
   } catch (error) {
     throw error;
   }
