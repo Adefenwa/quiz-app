@@ -4,23 +4,37 @@ class Quiz {
   _homeMenuPage = document.querySelector(".quiz__menu");
   _questionTag = document.querySelector(".question__tag");
 
-  _tagTitle = document.querySelector(".question__tag--title");
-  _tagIcon = document.querySelector(".tag-icon");
+  _questionContainer = document.querySelector(".question-parent-container");
   showQuestionPage() {
     this._homeMenuPage.classList.add("hidden");
     this._questionSectionContainer.classList.remove("hidden");
     this._questionTag.classList.remove("visibility-hidden");
   }
 
-  showSubjectTag(tag) {
-    this._tagTitle.textContent = tag;
+  renderTag(icon, tagName) {
+    const markup = `
+        <div class="icon tag-icon">
+          <img src="${icon}" alt="${tagName}">
+            
+          </div>
+          <h4 class="question__tag--title">${tagName}</h4>
+    `;
+    this._questionTag.insertAdjacentHTML("afterbegin", markup);
   }
 
-  showSubjectTagIcon(icon) {
-    const tagEL = document.createElement("img");
-    tagEL.src = icon;
-
-    this._tagIcon.appendChild(tagEL);
+  renderQuestion(questions) {
+    questions.forEach((q, index, arr) => {
+      const markup = `
+                  <p class="subject__question-number">
+                  Question <span class="current">${index + 1}</span> of
+                  <span class="total">${arr.length}</span>
+                </p>
+                <h1 class="question">
+                  ${q.question}
+                </h1>
+              `;
+      this._questionContainer.insertAdjacentHTML("beforeend", markup);
+    });
   }
 
   addHandlerSubject(handler) {

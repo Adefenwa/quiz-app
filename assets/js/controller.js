@@ -6,12 +6,22 @@ import subjectQuiz from "./subjectView.js";
 // CONTROL QUIZ
 const controlQuiz = async function (subject) {
   try {
+    // 1. Fetching the API
     const quiz = await model.loadQuiz(subject);
+
+    // 2. Toggling question page
     subjectQuiz.showQuestionPage();
-    subjectQuiz.showSubjectTag(quiz.title);
-    subjectQuiz.showSubjectTagIcon(quiz.icon);
+
+    // 3. Rendering the tag icon
+    subjectQuiz.renderTag(quiz.icon, quiz.title);
+
+    // 4. Rendering questions
+    subjectQuiz.renderQuestion(quiz.questions);
+
+    // 5. Pagination
+    // 6. Slider
     // return quiz;
-    console.log(quiz);
+    console.log(quiz.icon);
 
     // console.log(quiz);
   } catch (error) {
