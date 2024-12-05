@@ -1,6 +1,15 @@
 import { API_URL } from "./config.js";
 import { getJSON } from "./helpers.js";
 
+export const state = {
+  quiz: {},
+  questions: {
+    question: [],
+    options: [],
+    answer: [],
+    page: 1,
+  },
+};
 // LOAD API
 export const loadQuiz = async function (subject) {
   try {
@@ -11,9 +20,22 @@ export const loadQuiz = async function (subject) {
       (quiz) => quiz.title.toLowerCase() === subject.toLowerCase()
     );
     if (!quiz) throw new Error("Subject not found!");
-    return quiz;
+
+    state.quiz = {
+      title: quiz.title,
+      icon: quiz.icon,
+      questions: quiz.questions,
+    };
+    console.log(state.questions);
     // console.log(quiz);
+    return quiz;
   } catch (error) {
     throw error;
   }
+};
+
+// let currentPage;
+
+export const getQuestionPerPage = function (page) {
+  console.log(state.questions);
 };

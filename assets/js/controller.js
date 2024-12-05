@@ -8,6 +8,7 @@ const controlQuiz = async function (subject) {
   try {
     // 1. Fetching the API
     const quiz = await model.loadQuiz(subject);
+    console.log(quiz);
 
     // 2. Toggling question page
     subjectQuiz.showQuestionPage();
@@ -19,9 +20,11 @@ const controlQuiz = async function (subject) {
     subjectQuiz.renderQuestion(quiz.questions);
 
     // 5. Pagination
+    model.getQuestionPerPage();
+
     // 6. Slider
     // return quiz;
-    console.log(quiz.icon);
+    // console.log(quiz.icon);
 
     // console.log(quiz);
   } catch (error) {
