@@ -17,10 +17,10 @@ const controlQuiz = async function (subject) {
     subjectQuiz.renderTag(quiz.icon, quiz.title);
 
     // 4. Rendering questions
-    subjectQuiz.renderQuestion(quiz.questions);
+    // subjectQuiz.renderQuestion(quiz.questions);
 
     // 5. Pagination
-    model.getQuestionPerPage();
+    controlPagination();
 
     // 6. Slider
     // return quiz;
@@ -32,6 +32,21 @@ const controlQuiz = async function (subject) {
   }
 };
 
+const controlPagination = () => {
+  const currentQuestion = model.getQuestionPerPage().question;
+  const currentPage = model.state.questions.page;
+  const totalQuestions = model.state.questions.question.length;
+  const options = model.getQuestionPerPage().options;
+
+  // console.log(model.getQuestionPerPage().options);
+
+  subjectQuiz.renderQuestion(
+    currentQuestion,
+    currentPage,
+    totalQuestions,
+    options
+  );
+};
 // controlQuiz("html");
 subjectQuiz.addHandlerSubject(controlQuiz);
 

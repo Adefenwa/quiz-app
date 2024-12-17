@@ -26,8 +26,15 @@ export const loadQuiz = async function (subject) {
       icon: quiz.icon,
       questions: quiz.questions,
     };
+    console.log(state.quiz.questions);
+    state.questions = {
+      question: state.quiz.questions.map((value) => value.question),
+      options: state.quiz.questions.map((value) => value.options),
+      answer: state.quiz.questions.map((value) => value.answer),
+      page: state.questions.page,
+    };
     console.log(state.questions);
-    // console.log(quiz);
+
     return quiz;
   } catch (error) {
     throw error;
@@ -36,6 +43,15 @@ export const loadQuiz = async function (subject) {
 
 // let currentPage;
 
-export const getQuestionPerPage = function (page) {
-  console.log(state.questions);
+export const getQuestionPerPage = function () {
+  const page = state.questions.page - 1;
+  console.log(state.questions.options[page]);
+  return {
+    question: state.questions.question[page],
+    options: state.questions.options[page],
+  };
+  // console.log(state.questions);
+  // console.log(page);
+
+  // return state.questions.question.slice(page);
 };

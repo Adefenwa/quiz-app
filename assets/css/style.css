@@ -262,7 +262,7 @@ button {
   width: 100%;
 }
 .option {
-  margin-bottom: 0.5em;
+  /* margin-bottom: 1px; */
   background-color: var(--white);
   padding: 12px;
   border-radius: 10px;
