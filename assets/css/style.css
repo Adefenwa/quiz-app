@@ -261,6 +261,9 @@ button {
   cursor: pointer;
   width: 100%;
 }
+.options {
+  margin-bottom: 1em;
+}
 .option {
   /* margin-bottom: 1px; */
   background-color: var(--white);

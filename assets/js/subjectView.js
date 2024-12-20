@@ -6,6 +6,8 @@ class Quiz {
 
   _questionContainer = document.querySelector(".question-parent-container");
   _optionsContainer = document.querySelector(".options");
+  _submitBtn = document.querySelector(".btn--submit");
+
   showQuestionPage() {
     this._homeMenuPage.classList.add("hidden");
     this._questionSectionContainer.classList.remove("hidden");
@@ -58,7 +60,9 @@ class Quiz {
   renderOptions(options) {
     const markup = options.map(
       (option, index) => `
-                <button type="submit" class="option option__a" data-id='${index}'>
+                <button type="submit" class="option option__${String.fromCharCode(
+                  65 + index
+                ).toLowerCase()}" data-id='${index}'>
                   <div class="row--one">
                     <h5 class="option__letter">${String.fromCharCode(
                       65 + index
@@ -109,6 +113,33 @@ class Quiz {
         handler(selectedSubject);
       });
     });
+  }
+
+  addHandlerOptionSelection(handler) {
+    this._optionsContainer.addEventListener("click", (e) => {
+      const option = e.target.closest(".option");
+      if (!option) return;
+
+      // const optionId = option.dataset.id;
+      // handler(optionId);
+      const selectedAnswer = option.querySelector(".option__title").textContent;
+      handler(selectedAnswer);
+    });
+  }
+
+  showResult(isCorrect) {
+    const resultMessage = isCorrect ? "Correct" : "Wrong";
+
+    alert(resultMessage);
+  }
+
+  addHandlerSubmit(handler) {
+    this._submitBtn.addEventListener("click", handler);
+    handler();
+  }
+
+  updateSubmitButtonText(text) {
+    this._submitBtn.textContent = text;
   }
 }
 

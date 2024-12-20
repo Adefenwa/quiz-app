@@ -2,6 +2,7 @@
 import * as model from "./model.js";
 import toggleSwitch from "./toggleView.js";
 import subjectQuiz from "./subjectView.js";
+import subjectView from "./subjectView.js";
 
 // CONTROL QUIZ
 const controlQuiz = async function (subject) {
@@ -22,6 +23,8 @@ const controlQuiz = async function (subject) {
     // 5. Pagination
     controlPagination();
 
+    controlSubmit();
+
     // 6. Slider
     // return quiz;
     // console.log(quiz.icon);
@@ -37,8 +40,10 @@ const controlPagination = () => {
   const currentPage = model.state.questions.page;
   const totalQuestions = model.state.questions.question.length;
   const options = model.getQuestionPerPage().options;
+  const answer = model.getQuestionPerPage().answer;
 
-  // console.log(model.getQuestionPerPage().options);
+  console.log(model.getQuestionPerPage().options);
+  console.log(answer);
 
   subjectQuiz.renderQuestion(
     currentQuestion,
@@ -47,6 +52,7 @@ const controlPagination = () => {
     options
   );
 };
+
 // controlQuiz("html");
 subjectQuiz.addHandlerSubject(controlQuiz);
 
@@ -67,8 +73,21 @@ const applySavedTheme = () => {
 
 applySavedTheme();
 
-// Question Tag Removed
-const questionTagEL = document.querySelector(".question__tag");
-const btnHTML = document.querySelector(".html");
-const quizMenuContainer = document.querySelector(".quiz__menu");
-const subjectQuestionsContainer = document.querySelector(".subject__question");
+// const controlOptionSelection = (selectedAnswer) => {
+//   console.log(selectedAnswer);
+//   model.setSelectedAnswer(selectedAnswer);
+// };
+
+const controlSubmit = () => {
+  const selectedAnswer = model.state.questions.selectedAnswer;
+  const correctAnswer = model.getQuestionPerPage().answer;
+
+  if (selectedAnswer === correctAnswer) {
+    subjectQuiz.showResult(true);
+    subjectQuiz.updateSubmitButtonText("Next");
+  } else {
+    subjectQuiz.showResult(false);
+  }
+};
+
+// controlOptionSelection();

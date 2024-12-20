@@ -8,6 +8,7 @@ export const state = {
     options: [],
     answer: [],
     page: 1,
+    selectedAnswer: null,
   },
 };
 // LOAD API
@@ -45,13 +46,18 @@ export const loadQuiz = async function (subject) {
 
 export const getQuestionPerPage = function () {
   const page = state.questions.page - 1;
-  console.log(state.questions.options[page]);
+
   return {
     question: state.questions.question[page],
     options: state.questions.options[page],
+    answer: state.questions.answer[page],
   };
   // console.log(state.questions);
   // console.log(page);
 
   // return state.questions.question.slice(page);
+};
+
+export const setSelectedAnswer = function (answer) {
+  state.questions.selectedAnswer = answer;
 };
